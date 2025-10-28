@@ -1,0 +1,20 @@
+# Comandos para subir a GitHub (copia y pega en la terminal)
+
+# 1. Inicializar Git (solo la primera vez)
+git init
+
+# 2. Agregar todos los archivos
+git add .
+
+# 3. Hacer el primer commit
+git commit -m "Aula Virtual - Sistema completo de gestión de tareas educativas"
+
+# 4. Conectar con tu repositorio de GitHub (reemplaza TU-USUARIO con tu nombre de usuario)
+git remote add origin https://github.com/TU-USUARIO/aula-virtual-tareas.git
+
+# 5. Subir el código
+git push -u origin main
+
+# Si te pide credenciales, usa tu usuario y token de GitHub
+
+# ¡Listo! Tu código ya está en GitHub y puedes conectarlo con Render

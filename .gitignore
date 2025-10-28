@@ -1,0 +1,43 @@
+# Dependencias
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Variables de entorno (IMPORTANTE: No compartir)
+.env
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+
+# Archivos temporales
+tmp/
+temp/
+
+# Archivos subidos (opcional - depende si quieres compartir ejemplos)
+uploads/*
+!uploads/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos de build
+dist/
+build/
+
+# Archivos de backup
+*.bak
+*.backup
+
+# Archivos comprimidos del proyecto
+*.zip
+*.tar.gz
+*.rar
