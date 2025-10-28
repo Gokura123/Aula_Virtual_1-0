@@ -2,12 +2,14 @@
 
 ## 🎯 Opción Más Fácil: Render (100% Gratuito)
 
-### PASO 1: Subir a GitHub
-1. Ve a [github.com](https://github.com) y crea una cuenta (si no tienes)
-2. Haz clic en "New repository"
-3. Nombre: `aula-virtual-tareas`
-4. Marca "Public" y haz clic en "Create repository"
-5. Sigue las instrucciones para subir tu código
+### PASO 1: ✅ Código ya subido a GitHub
+Tu código ya está disponible en: `https://github.com/Gokura123/Aula_Virtual_1-0`
+
+Si necesitas hacer cambios:
+1. Modifica los archivos localmente
+2. Ejecuta: `git add .`
+3. Ejecuta: `git commit -m "descripción del cambio"`
+4. Ejecuta: `git push origin main`
 
 ### PASO 2: Crear cuenta en Render
 1. Ve a [render.com](https://render.com)
@@ -17,17 +19,17 @@
 ### PASO 3: Conectar tu proyecto
 1. En Render, haz clic en "New +"
 2. Selecciona "Web Service"
-3. Conecta tu repositorio `aula-virtual-tareas`
+3. Busca y conecta tu repositorio: `Gokura123/Aula_Virtual_1-0`
 4. Haz clic en "Connect"
 
 ### PASO 4: Configurar el servicio
 Llena estos campos:
 - **Name:** `aula-virtual-tareas`
+- **Branch:** `main`
 - **Environment:** `Node`
 - **Build Command:** `npm install`
 - **Start Command:** `npm start`
 - **Plan:** `Free`
-
 ### PASO 5: Variables de entorno (MUY IMPORTANTE)
 En la sección "Environment Variables", agrega estas variables:
 
@@ -93,13 +95,7 @@ mi_jwt_secret_super_seguro_2024_produccion
 ## 🎉 ¡Tu aplicación ya está en internet!
 
 ### 👥 Usuarios para probar:
-**Profesora:**
-- Usuario: `Virginia Torrez`
-- Contraseña: `12345`
-
-**Estudiante:**
-- Usuario: `Juan Pérez`
-- Contraseña: `12345`
+Los usuarios se crean directamente en la aplicación mediante el registro.
 
 ---
 
