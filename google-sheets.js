@@ -770,8 +770,16 @@ class GoogleSheetsService {
             
             const estudiantesCurso = resultadoEstudiantes.estudiantes.filter(e => e.curso === curso);
             
-            // Obtener estudiantes ya existentes en la hoja y headers
-            const filasExistentes = await hojaCalificaciones.getRows();
+            // Obtener estudiantes ya existentes en la hoja y headers de forma segura
+            let filasExistentes;
+            try {
+                filasExistentes = await hojaCalificaciones.getRows();
+            } catch (rowError) {
+                console.log(`⚠️ Error al obtener filas existentes en sincronización: ${rowError.message}`);
+                // Si hay error de rango, asumir que no hay filas existentes
+                filasExistentes = [];
+            }
+            
             await hojaCalificaciones.loadHeaderRow();
             const headers = hojaCalificaciones.headerValues;
             
@@ -1130,7 +1138,29 @@ class GoogleSheetsService {
                 filas = await hojaCalificaciones.getRows();
             } catch (rowError) {
                 console.log(`❌ Error al obtener filas de ${nombreHoja}: ${rowError.message}`);
-                return { success: false, message: `Error al leer datos de calificaciones: ${rowError.message}` };
+                
+                // Intentar reparar la hoja si hay error de rango
+                if (rowError.message.includes('Unable to parse range')) {
+                    console.log(`🔄 Recreando hoja ${nombreHoja} por error de rango...`);
+                    try {
+                        await hojaCalificaciones.delete();
+                        hojaCalificaciones = await this.crearHojaCalificacionesCurso(curso);
+                        
+                        if (hojaCalificaciones) {
+                            // Sincronizar estudiantes después de recrear
+                            await this.sincronizarEstudiantesEnHojaCalificaciones(curso, hojaCalificaciones);
+                            filas = await hojaCalificaciones.getRows();
+                            console.log(`✅ Hoja ${nombreHoja} recreada y datos recuperados`);
+                        } else {
+                            return { success: false, message: `No se pudo recrear la hoja de calificaciones para curso: ${curso}` };
+                        }
+                    } catch (recreateError) {
+                        console.log(`❌ Error al recrear hoja: ${recreateError.message}`);
+                        return { success: false, message: `Error al recrear hoja de calificaciones: ${recreateError.message}` };
+                    }
+                } else {
+                    return { success: false, message: `Error al leer datos de calificaciones: ${rowError.message}` };
+                }
             }
             
             await hojaCalificaciones.loadHeaderRow();
