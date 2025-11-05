@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula Virtual - Iniciar Sesión</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="login-styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="login-card">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-graduation-cap login-icon"></i>
+                            <h2 class="login-title">Aula Virtual</h2>
+                            <p class="login-subtitle">Sistema de Gestión de Tareas</p>
+                        </div>
+
+                        <!-- Selector de Tipo de Usuario -->
+                        <div class="user-type-selector mb-4">
+                            <div class="btn-group w-100" role="group">
+                                <input type="radio" class="btn-check" name="userType" id="profesorType" value="profesor" checked>
+                                <label class="btn btn-outline-primary" for="profesorType">
+                                    <i class="fas fa-chalkboard-teacher me-2"></i>Profesor
+                                </label>
+                                
+                                <input type="radio" class="btn-check" name="userType" id="estudianteType" value="estudiante">
+                                <label class="btn btn-outline-primary" for="estudianteType">
+                                    <i class="fas fa-user-graduate me-2"></i>Estudiante
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Formulario de Login Profesor -->
+                        <div id="profesorLogin" class="login-form">
+                            <h4 class="text-center mb-3">Acceso Profesor</h4>
+                            <form id="formLoginProfesor">
+                                <div class="mb-3">
+                                    <label class="form-label">Usuario</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        <input type="text" class="form-control" id="usuarioProfesor" 
+                                               placeholder="Ingrese su usuario" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Contraseña</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                        <input type="password" class="form-control" id="passwordProfesor" 
+                                               placeholder="Ingrese su contraseña" required>
+                                        <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('passwordProfesor')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100 login-btn">
+                                    <i class="fas fa-sign-in-alt me-2"></i>Iniciar Sesión
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Formulario de Login/Registro Estudiante -->
+                        <div id="estudianteLogin" class="login-form" style="display: none;">
+                            <div class="text-center mb-3">
+                                <div class="btn-group" role="group">
+                                    <input type="radio" class="btn-check" name="estudianteAction" id="loginAction" value="login" checked>
+                                    <label class="btn btn-outline-success btn-sm" for="loginAction">Iniciar Sesión</label>
+                                    
+                                    <input type="radio" class="btn-check" name="estudianteAction" id="registerAction" value="register">
+                                    <label class="btn btn-outline-success btn-sm" for="registerAction">Registrarse</label>
+                                </div>
+                            </div>
+
+                            <!-- Login Estudiante -->
+                            <div id="estudianteLoginForm">
+                                <h4 class="text-center mb-3">Iniciar Sesión - Estudiante</h4>
+                                <form id="formLoginEstudiante">
+                                    <div class="mb-3">
+                                        <label class="form-label">Nombre de Usuario</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            <input type="text" class="form-control" id="usuarioEstudiante" 
+                                                   placeholder="Tu nombre de usuario" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Contraseña</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                            <input type="password" class="form-control" id="passwordEstudiante" 
+                                                   placeholder="Tu contraseña" required>
+                                            <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('passwordEstudiante')">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-success w-100 login-btn">
+                                        <i class="fas fa-sign-in-alt me-2"></i>Iniciar Sesión
+                                    </button>
+                                </form>
+                            </div>
+
+                            <!-- Registro Estudiante -->
+                            <div id="estudianteRegisterForm" style="display: none;">
+                                <h4 class="text-center mb-3">Registro - Estudiante</h4>
+                                <form id="formRegistroEstudiante">
+                                    <div class="mb-3">
+                                        <label class="form-label">Nombre Completo</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            <input type="text" class="form-control" id="nombreCompleto" 
+                                                   placeholder="Tu nombre completo" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Nombre de Usuario</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-at"></i></span>
+                                            <input type="text" class="form-control" id="usuarioRegistro" 
+                                                   placeholder="Elige un nombre de usuario" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Curso</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-graduation-cap"></i></span>
+                                            <select class="form-control" id="cursoEstudiante" required>
+                                                <option value="">Cargando cursos...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Contraseña</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                            <input type="password" class="form-control" id="passwordRegistro" 
+                                                   placeholder="Crea una contraseña" required>
+                                            <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('passwordRegistro')">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Confirmar Contraseña</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                            <input type="password" class="form-control" id="confirmarPassword" 
+                                                   placeholder="Confirma tu contraseña" required>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-success w-100 login-btn">
+                                        <i class="fas fa-user-plus me-2"></i>Registrarse
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>
