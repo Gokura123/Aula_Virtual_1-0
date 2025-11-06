@@ -1,7 +1,8 @@
 /* Estilos generales */
 body {
-    background-color: #f8f9fa;
+    background-color: #f5f5f5;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333333;
 }
 
 .vista-panel {
@@ -17,6 +18,13 @@ body {
 .navbar-brand {
     font-weight: bold;
     font-size: 1.5rem;
+}
+
+.navbar-logo {
+    height: 40px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
 }
 
 /* Cards */
@@ -40,7 +48,7 @@ body {
     align-items: center;
     padding: 15px;
     margin: 10px 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
     border-radius: 8px;
     color: white;
 }
@@ -72,7 +80,7 @@ body {
 
 .tarea-titulo {
     font-weight: 600;
-    color: #495057;
+    color: #212529;
     margin-bottom: 8px;
 }
 
@@ -89,7 +97,7 @@ body {
 }
 
 .badge-materia {
-    background: linear-gradient(45deg, #007bff, #0056b3);
+    background: linear-gradient(45deg, #dc3545, #c82333);
     color: white;
     padding: 5px 10px;
     border-radius: 15px;
@@ -123,13 +131,13 @@ body {
 }
 
 .btn-entregar {
-    background: linear-gradient(45deg, #007bff, #0056b3);
+    background: linear-gradient(45deg, #dc3545, #c82333);
     border: none;
     color: white;
 }
 
 .btn-entregar:hover {
-    background: linear-gradient(45deg, #0056b3, #004085);
+    background: linear-gradient(45deg, #c82333, #a71e2a);
     color: white;
 }
 
@@ -151,8 +159,8 @@ body {
 
 /* Formularios */
 .form-control:focus {
-    border-color: #80bdff;
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220,53,69,.25);
 }
 
 /* Alertas personalizadas */
@@ -163,7 +171,7 @@ body {
 }
 
 .alert-success-custom {
-    background: linear-gradient(45deg, #28a745, #20c997);
+    background: linear-gradient(45deg, #212529, #495057);
     color: white;
 }
 
@@ -200,7 +208,7 @@ body {
     width: 20px;
     height: 20px;
     border: 3px solid #f3f3f3;
-    border-top: 3px solid #007bff;
+    border-top: 3px solid #dc3545;
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -228,7 +236,7 @@ os para botones de acción de tareas */
 
 /* Estilos para el modal de edición */
 #modalEditarTarea .modal-header {
-    background: linear-gradient(45deg, #007bff, #0056b3);
+    background: linear-gradient(45deg, #dc3545, #c82333);
     color: white;
 }
 
@@ -287,11 +295,11 @@ os para botones de acción de tareas */
 
 /* Iconos de tipo de entrega */
 .bg-primary {
-    background: linear-gradient(45deg, #007bff, #0056b3) !important;
+    background: linear-gradient(45deg, #dc3545, #c82333) !important;
 }
 
 .bg-info {
-    background: linear-gradient(45deg, #17a2b8, #138496) !important;
+    background: linear-gradient(45deg, #212529, #495057) !important;
 }
 
 /* Responsive para entregas */

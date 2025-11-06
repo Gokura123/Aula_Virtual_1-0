@@ -1,6 +1,6 @@
 /* Estilos para la página de login */
 body {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #dc3545 0%, #212529 100%);
     min-height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -21,9 +21,16 @@ body {
     border: 1px solid rgba(255,255,255,0.2);
 }
 
+.login-logo {
+    height: 80px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+}
+
 .login-icon {
     font-size: 4rem;
-    color: #667eea;
+    color: #dc3545;
     margin-bottom: 20px;
 }
 
@@ -47,10 +54,10 @@ body {
 }
 
 .user-type-selector .btn-check:checked + .btn {
-    background: linear-gradient(45deg, #007bff, #0056b3);
-    border-color: #0056b3;
+    background: linear-gradient(45deg, #dc3545, #c82333);
+    border-color: #c82333;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+    box-shadow: 0 4px 15px rgba(220,53,69,0.3);
 }
 
 .login-form {
@@ -83,8 +90,8 @@ body {
 }
 
 .form-control:focus {
-    border-color: #80bdff;
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220,53,69,.25);
     transform: translateY(-1px);
 }
 
